@@ -1,27 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Permanent+Marker&family=Poppins:wght@400;600;700;800;900&family=Racing+Sans+One&family=Zeyada&display=swap');
 @tailwind base;
+body{
+  @apply bg-body-grey font-Poppins;
+}
+/* 
+
+h1 {
+  @apply px-2 text-2xl md:text-4xl md:text-left;
+  @apply font-bold;
+  @apply my-4;
+}
+h2 {
+  @apply px-2 text-2xl md:text-left;
+  @apply font-bold;
+  @apply my-4;
+}
+h3 {
+  @apply px-2 text-2xl md:text-left;
+  @apply px-2 font-bold;
+  @apply px-2 my-4;
+}
+h4,h5 {
+  @apply px-2 text-xl md:text-left;
+  @apply font-bold;
+  @apply my-4;
+}
+
+ul{
+  @apply px-2 text-base list-disc ml-8 my-4 md:text-xl md:text-left
+}
+p{
+  @apply px-2 text-base md:text-xl my-4 md:text-left
+}
+li{
+  @apply px-2 text-base md:text-xl my-4 md:text-left
+} */
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
-}
-
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
+/* 
+*{
+  font-size: 18px;
+  font-weight:normal;
+} */
