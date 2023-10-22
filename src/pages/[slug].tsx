@@ -2,6 +2,7 @@ import { createClient } from "next-sanity";
 import {PortableText} from '@portabletext/react'
 import { RichTextComponents } from "@/components/RichComponents";
 import NavBar from '../components/NavBar'
+import { useRouter } from "next/router";
 
 // ...
 
@@ -53,6 +54,12 @@ export async function getStaticProps(params:SlugType2) {
 // Your component code here to render the blog post
 export default function BlogPost({ post}:any) {
     // Render the blog post content here using the "post" data
+
+    const router = useRouter();
+
+    if (router.isFallback) {
+      return <h1>Data is loading</h1>;
+    }
 
     console.log("For which article idk",post)
     console.log("blocks are ",post[0].blocks)
