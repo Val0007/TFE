@@ -54,8 +54,11 @@ export async function getStaticProps(params:SlugType2) {
 export default function BlogPost({ post}:any) {
     // Render the blog post content here using the "post" data
 
-    console.log(post)
+    console.log("For which article idk",post)
     console.log("blocks are ",post[0].blocks)
+    if(post[0].blocks == undefined){
+      post[0].blocks = [];
+    }
 
     return (
       <div>
