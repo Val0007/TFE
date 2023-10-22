@@ -3,7 +3,7 @@ import Image from 'next/image'
 import tfeLogo from './tfewhite.png'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
-
+import tfeLog from './tfeLog.png'
 
 interface NavBarProp{
   page:string;
@@ -30,12 +30,15 @@ export default function NavBar(props:NavBarProp) {
 
   if( width >= 768){
     return <div className="w-screen h-64 flex flex-col justify-center items-center">
+    {/* <div className="w-screen flex flex-col justify-center items-center">
+      <Image src={tfeLog} alt="LOGO" className="w-3/5 h-40" ></Image>
+    </div> */}
     <div className="mb-8">
-      <span className=" tracking-widest text-4xl font-extrabold font-Marker text-8xl">TFE</span>
+      <span className=" tracking-widest text-4xl font-extrabold text-8xl font-chomsky">The Fourth Estate</span>
     </div>
-    <div className=' h-0.5 w-3/4 bg-black mb-1'>
+    <div className=' h-0.5 w-full bg-black mb-1'>
     </div>
-    <div className="w-3/4 flex flex-row border-y justify-center items-center border-nav-black py-2 mb-0.5">
+    <div className="w-full flex flex-row border-y justify-center items-center border-nav-black py-2 mb-0.5">
         {
           props.page == "home" ? 
           <>
@@ -50,7 +53,7 @@ export default function NavBar(props:NavBarProp) {
 
         }
       </div>
-    <div className=' h-0.5 w-3/4 bg-black mt-0.5'>
+    <div className=' h-0.5 w-full bg-black mt-0.5'>
     </div>
   </div>
   }
@@ -58,7 +61,7 @@ export default function NavBar(props:NavBarProp) {
     return (
       <div className="bg-nav-black w-screen h-14 mb-6 text-white p-2 flex justify-between items-center">
         <div>
-          <span className=" text-4xl tracking-widest font-Marker">tfe</span>
+          <span className=" text-4xl tracking-widest font-chomsky">tfe</span>
         </div>
         <div className="flex flex-row">
           {

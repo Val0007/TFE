@@ -1,38 +1,56 @@
-import { NextRequest, NextResponse } from 'next/server'
 import {client} from '../client'
 import { ServerResponse } from 'http';
 import { SanityImageSource } from '@sanity/image-url/lib/types/types';
-import { useEffect } from 'react';
 import ArticleComp from '../components/ArticleComp'
 import { useRouter } from 'next/router'
 import NavBar from '../components/NavBar'
-import Upcoming from '@/components/Upcoming';
-import Recents from '@/components/Recent';
+import Header3 from '../components/Headers/Header3'
+import { useWindowSize } from '@/utils';
+
 
 export default function Home({data}:{data:PostData[]}) {
 
   const router = useRouter()
+  const size = useWindowSize();
+  const width  = size.width || 768
+  const compCopy = excludeElements(data,[0,1,2]) 
+
+  function excludeElements(arr:PostData[], indicesToExclude:Number[]) {
+    return arr.filter((_, index) => !indicesToExclude.includes(index));
+  }
 
 
-  useEffect(()=>{
-
-  },[])
-
-  return (
+  return ( 
     <div>
     <NavBar page="home"></NavBar>
-    <div className='flex flex-col justify-center items-center relative'>
-    <Upcoming classname='hidden lg:block bg-nav-black text-white absolute top-0 right-0 w-1/6 h-96 overflow-y-auto rounded-l-lg '></Upcoming>
-    <Recents classname='hidden lg:block bg-nav-black text-white absolute top-0 left-0 w-1/6 h-96 overflow-y-auto rounded-r-lg'></Recents>
-      <div className='lg:px-2 flex flex-col w-screen md:w-4/6 md:grid md:grid-cols-2 gap-y-4 md:gap-6 lg:grid-cols-3 lg:gap-4 '>
-      {data.map(post => {
+    <div className="w-full flex flex-col justify-center items-center">
+    <div className="lg:w-4/6 w-screen">
+      {width >= 1024 ? 
+      <>
+      <Header3 data={data.slice(0,3)} ></Header3>
+      <div className='lg:px-2  px-4 flex flex-col w-screen md:w-full md:grid gap-y-6 md:gap-y-4 md:gap-6 md:grid-cols-3 md:mt-6'>
+      {compCopy.map(post => {
         return <ArticleComp article={post} key={post.title} onClick={()=>{
           router.push(`/${post.title}`)
         }}></ArticleComp>
       })}
-      </div>
+      </div> 
+      </>
+       : 
+       <div className='lg:px-2  px-4 flex flex-col w-screen md:w-full md:grid gap-y-6 md:gap-y-4 md:gap-6 md:grid-cols-3 md:mt-6'>
+       {data.map(post => {
+         return <ArticleComp article={post} key={post.title} onClick={()=>{
+           router.push(`/${post.title}`)
+         }}></ArticleComp>
+       })}
+       </div> 
+      
+      }
+
     </div>
     </div>
+    </div>
+
 
   )
 }

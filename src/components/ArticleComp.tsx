@@ -10,15 +10,17 @@ interface PostData{
 
 export default function ArticleComp({article,onClick}:{article:PostData,onClick:()=>void}) {
   return (
-    <div className='bg-article-white h-20 grid grid-cols-10 md:h-80 md:rounded-b-md md:block overflow-hidden cursor-pointer relative' onClick={onClick}>
-        <div className='hidden  md:block absolute top-1 right-1 h-4 w-10  bg-article-white text-black rounded-lg z-50 text-center text-xs'>
-          {getTimeAgo(article._createdAt)}
-        </div>
-        <img src={urlFor(article.image).url()} alt="" className='col-span-3 h-full md:h-4/6 md:w-full ' />
-        <div className='pl-1 md:p-2 col-span-7'>
-        <span className='text-sm md:text-lg font-light leading-7 tracking-wider text-clip  md:w-full'>{article.title}</span>
-        </div>
+<div className='h-full w-full pt-2 pb-1 cursor-pointer'  onClick={onClick}>
+  <img src={urlFor(article.image).url()} alt="" className="h-3/5 w-full mb-1"/>
+  <div className='h-0.5 w-full bg-slate-300'></div>
+  <div className='font-black tracking-wider relative w-full'>
+    {article.title}
+    <div className='absolute bottom-1 right-0 h-4 w-12 text-gray-500 rounded-lg z-50 text-center text-xs font-thin'>
+      {getTimeAgo(article._createdAt)}
     </div>
+  </div>
+</div>
+
   )
 
 

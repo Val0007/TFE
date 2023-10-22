@@ -24,10 +24,14 @@ const config: Config = {
         Marker:"Permanent Marker",
         rso:"Racing Sans One",
         zeyda:"Zeyada",
-        Poppins:"Poppins"
+        Poppins:"Poppins",
+        chomsky:"chomsky"
       },
       fontSize:{
         '8xl':'90px'
+      },
+      height:{
+        '108':'30rem'
       }
     },
   },
