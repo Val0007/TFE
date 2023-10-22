@@ -16,7 +16,9 @@ interface SlugType{
     title: string
 }
 interface SlugType2{
-    slug: string
+    params:{
+      slug: string;
+    }
 }
 
 export async function getStaticPaths() {
@@ -49,7 +51,7 @@ export async function getStaticProps(params:SlugType2) {
 }
 
 // Your component code here to render the blog post
-export default function BlogPost({ post}) {
+export default function BlogPost({ post}:any) {
     // Render the blog post content here using the "post" data
     return (
       <div>
