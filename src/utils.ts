@@ -2,10 +2,10 @@ import { useEffect, useState } from "react";
 
 export function getTimeAgo(dateString:string) {
     // Parse the date-time string into a Date object
-    const date = new Date(dateString);
+    const date:any = new Date(dateString);
   
     // Get the current date and time
-    const currentDate = new Date();
+    const currentDate:any = new Date();
   
     // Calculate the difference in milliseconds
     const differenceInMilliseconds = currentDate - date;

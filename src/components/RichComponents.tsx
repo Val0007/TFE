@@ -3,13 +3,14 @@ import { getImageDimensions } from "@sanity/asset-utils";
 import Link from "next/link";
 import { YouTubePreview } from "./YoutubeComp";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
+import { PortableTextComponent } from '@sanity/block-content-to-react';
 
 const imageBuilder = urlBuilder({
   projectId: "61g49341", // Replace with your Sanity project ID
   dataset: "production", // Replace with your Sanity dataset
 });
 
-export const RichTextComponents = {
+export const RichTextComponents:PortableTextComponent = {
   types: {
     image: ({ value }:any) => {
       const { width, height } = getImageDimensions(value);
