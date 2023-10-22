@@ -59,7 +59,7 @@ export default function BlogPost({ post}:any) {
       <div className="md:flex md:flex-col md:justify-center md:items-center">
       <div className="w-screen px-4 md:px-0 text-sm md:w-1/2 text-left md:text-lg">
         <PortableText
-        value={post[0].blocks}
+        value={post[0].blocks || []}
         components={RichTextComponents}
         ></PortableText>
       </div>
