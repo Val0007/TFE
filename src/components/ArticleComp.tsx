@@ -15,7 +15,7 @@ export default function ArticleComp({article,onClick}:{article:PostData,onClick:
   <div className='h-0.5 w-full bg-slate-300'></div>
   <div className='font-black tracking-wider relative w-full'>
     {article.title}
-    <div className='absolute bottom-1 right-0 h-4 w-12 text-gray-500 rounded-lg z-50 text-center text-xs font-thin'>
+    <div className='absolute bottom-0 -right-2  h-4 w-14 text-gray-500 rounded-lg z-50 text-center text-xs font-thin'>
       {getTimeAgo(article._createdAt)}
     </div>
   </div>

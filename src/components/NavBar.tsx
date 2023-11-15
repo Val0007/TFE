@@ -43,12 +43,20 @@ export default function NavBar(props:NavBarProp) {
           props.page == "home" ? 
           <>
           <Link href="/" className=' font-rso mr-12 text-lg cursor-pointer underline decoration-slate-950 decoration-2 underline-offset-4'>News</Link>
-          <Link href="/video" className=' font-rso text-lg cursor-pointer'>Videos</Link>
+          <Link href="/video" className=' font-rso text-lg cursor-pointer mr-12'>Videos</Link>
+          <Link href="/events" className='font-rso text-lg cursor-pointer'>Events</Link>
           </>
-          : 
+          : props.page == "video" ?
           <>
           <Link href="/" className=' font-rso mr-12 text-lg cursor-pointer'>News</Link>
-          <Link href="/video" className=' font-rso text-lg cursor-pointer underline decoration-slate-950 decoration-2 underline-offset-4'>Videos</Link>
+          <Link href="/video" className=' font-rso text-lg cursor-pointer underline decoration-slate-950 decoration-2 underline-offset-4 mr-12'>Videos</Link>
+          <Link href="/events" className='font-rso text-lg cursor-pointer'>Events</Link>
+          </>
+          :
+          <>
+          <Link href="/" className=' font-rso mr-12 text-lg cursor-pointer'>News</Link>
+          <Link href="/video" className=' font-rso text-lg cursor-pointer mr-12'>Videos</Link>
+          <Link href="/events" className='font-rso text-lg cursor-pointer underline decoration-slate-950 decoration-2 underline-offset-4'>Events</Link>
           </>
 
         }
@@ -68,12 +76,20 @@ export default function NavBar(props:NavBarProp) {
             props.page == "home" ? 
             <>
             <Link href="/" className='font-rso mr-6 text-lg cursor-pointer underline decoration-slate-200 decoration-2 underline-offset-4'>News</Link>
-            <Link href="/video" className='font-rso text-lg cursor-pointer'>Videos</Link>
+            <Link href="/video" className='font-rso text-lg cursor-pointer mr-6'>Videos</Link>
+            <Link href="/events" className='font-rso text-lg cursor-pointer'>Events</Link>
             </>
-            : 
+            : props.page == "video" ?
             <>
             <Link href="/" className='font-rso mr-6 text-lg cursor-pointer '>News</Link>
-            <Link href="/video" className='font-rso text-lg cursor-pointer underline decoration-slate-200 decoration-2 underline-offset-4'>Videos</Link>
+            <Link href="/video" className='font-rso text-lg cursor-pointer underline decoration-slate-200 decoration-2 underline-offset-4 mr-6'>Videos</Link>
+            <Link href="/events" className='font-rso text-lg cursor-pointer'>Events</Link>
+            </>
+            :
+            <>
+            <Link href="/" className='font-rso mr-6 text-lg cursor-pointer '>News</Link>
+            <Link href="/video" className='font-rso text-lg cursor-pointer mr-6'>Videos</Link>
+            <Link href="/events" className='font-rso text-lg cursor-pointer underline decoration-slate-200 decoration-2 underline-offset-4'>Events</Link>
             </>
 
           }

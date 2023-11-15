@@ -25,7 +25,7 @@ export default function Home({data}:{data:PostData[]}) {
     <NavBar page="home"></NavBar>
     <div className="w-full flex flex-col justify-center items-center">
     <div className="lg:w-4/6 w-screen">
-      {width >= 1024 ? 
+      {/* {width >= 1024 ? 
       <>
       <Header3 data={data.slice(0,3)} ></Header3>
       <div className='lg:px-2  px-4 flex flex-col w-screen md:w-full md:grid gap-y-6 md:gap-y-4 md:gap-6 md:grid-cols-3 md:mt-6'>
@@ -45,7 +45,14 @@ export default function Home({data}:{data:PostData[]}) {
        })}
        </div> 
       
-      }
+      } */}
+      <div className='lg:px-2  px-4 flex flex-col w-screen md:w-full md:grid gap-y-6 md:gap-y-4 md:gap-6 md:grid-cols-3 md:mt-6'>
+       {data.map(post => {
+         return <ArticleComp article={post} key={post.title} onClick={()=>{
+           router.push(`/${post.title}`)
+         }}></ArticleComp>
+       })}
+       </div> 
 
     </div>
     </div>

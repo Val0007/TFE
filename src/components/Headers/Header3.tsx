@@ -36,7 +36,7 @@ export default function Header3(props: HeaderProp) {
                 <div className=' h-0.5 w-full bg-slate-300'></div>
                 <div className=' font-black tracking-wider relative'>
                 {props.data[1].title} wins against PTM
-                <div className='absolute bottom-1 right-0 h-4 w-12 text-gray-500 rounded-lg z-50 text-center text-xs font-thin'>
+                <div className='absolute -bottom-0 -right-2 h-4 w-12 text-gray-500 rounded-lg z-50 text-center text-xs font-thin'>
                 {getTimeAgo(props.data[1]._createdAt)}
                 </div>
                 </div>
@@ -47,7 +47,7 @@ export default function Header3(props: HeaderProp) {
                 <div className=' h-0.5 w-full bg-slate-300'></div>
                 <div className=' font-black tracking-wider relative w-full'>
                 {props.data[2].title}
-                <div className='absolute bottom-1 right-0 h-4 w-12 text-gray-500 rounded-lg z-50 text-center text-xs font-thin'>
+                <div className='absolute bottom-0 -right-2  h-4 w-12 text-gray-500 rounded-lg z-50 text-center text-xs font-thin'>
                 {getTimeAgo(props.data[2]._createdAt)}
                 </div>
                 </div>

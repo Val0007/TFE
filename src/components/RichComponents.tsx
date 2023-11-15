@@ -56,8 +56,9 @@ export const RichTextComponents:PortableTextComponent = {
     ol: ({ children }:any) => (
       <ol className="list-decimal ml-8 my-4">{children}</ol>
     ),
+    em:({ children }:any) => <em className="px-2 text-base md:text-xl  my-4 md:text-left">{children}</em>,
     li: ({ children }:any) => <li className="px-2 text-base md:text-xl my-4 md:text-left">{children}</li>,
-    p: ({ children }:any) => <p className="px-2 text-base md:text-xl my-4 md:text-left">{children}</p>,
+    p: ({ children }:any) => <p className="px-2 text-base  md:text-xl my-4 md:text-left">{children}</p>,
   },
   marks: {
     link: ({ children, value }:{children:any,value:any}) => {

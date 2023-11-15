@@ -47,7 +47,7 @@ export async function getServerSideProps({res}:ServerSideProps) {
     'public, s-maxage=3600, stale-while-revalidate=59'
   )
   // Fetch data from external API
-  const data:VideoData[] = await client.fetch(`*[_type == "video"]{title,url,youtubeurl}  | order(_createdAt desc)`);
+  const data:VideoData[] = await client.fetch(`*[_type == "video"]{title,url,youtubeurl,_createdAt}  | order(_createdAt desc)`);
   console.log(data)
   // Pass data to the page via props
   return { props: {data} }

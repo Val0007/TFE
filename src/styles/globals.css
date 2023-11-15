@@ -7,13 +7,18 @@
 } 
 
 body{
-  @apply bg-white font-Poppins  box-border;
+  @apply bg-article-white font-Poppins;
 }
 @tailwind components;
 @tailwind utilities;
 
-/* 
-*{
-  font-size: 18px;
+p{
+  @apply mt-0.5 md:mt-1;
+}
+
+/* *{
+  font-size: 16px;
   font-weight:normal;
 } */
+
+/* CSS -> p not working inside RICH COMPONENTS */

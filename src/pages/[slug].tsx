@@ -40,7 +40,6 @@ export async function getStaticPaths() {
 
 export async function getStaticProps(params:SlugType2) {
   // Fetch blog post data based on the slug
-  console.log("the params are ",params)
   const post = await client.fetch(`*[_type == "article" && title == "${params.params.slug}"]`);
 
   return {
@@ -61,8 +60,6 @@ export default function BlogPost({ post}:any) {
       return <h1>Data is loading</h1>;
     }
 
-    console.log("For which article idk",post)
-    console.log("blocks are ",post[0].blocks)
     if(post[0].blocks == undefined){
       post[0].blocks = [];
     }
@@ -71,7 +68,7 @@ export default function BlogPost({ post}:any) {
       <div>
         <NavBar page="slug"></NavBar>
       <div className="md:flex md:flex-col md:justify-center md:items-center">
-      <div className="w-screen px-4 md:px-0 text-sm md:w-1/2 text-left md:text-lg">
+      <div className="w-screen px-4 text-base md:text-lg lg:text-xl md:px-0 md:w-1/2 text-left ">
 
         <PortableText
         value={post[0].blocks || []}

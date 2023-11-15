@@ -17,9 +17,9 @@ export function getTimeAgo(dateString:string) {
     const hoursAgo = Math.floor((differenceInMilliseconds % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
   
     if (daysAgo > 0) {
-      return daysAgo + " days";
+      return daysAgo + " d";
     } else if (hoursAgo > 0) {
-      return hoursAgo + " hours";
+      return hoursAgo + " h";
     } else {
       return "1hr";
     }
