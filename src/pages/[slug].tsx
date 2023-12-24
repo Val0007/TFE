@@ -64,6 +64,9 @@ export default function BlogPost({ post}:any) {
       post[0].blocks = [];
     }
 
+    console.log(post[0].blocks)
+
+
     return (
       <div>
         <NavBar page="slug"></NavBar>

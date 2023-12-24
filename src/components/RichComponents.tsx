@@ -4,6 +4,7 @@ import Link from "next/link";
 import { YouTubePreview } from "./YoutubeComp";
 import { SanityImageSource } from "@sanity/image-url/lib/types/types";
 import { PortableTextComponent } from '@sanity/block-content-to-react';
+import PhotoViewer from '@/components/PhotoViewer'
 
 const imageBuilder = urlBuilder({
   projectId: "61g49341", // Replace with your Sanity project ID
@@ -12,22 +13,36 @@ const imageBuilder = urlBuilder({
 
 export const RichTextComponents:PortableTextComponent = {
   types: {
-    image: ({ value }:any) => {
-      const { width, height } = getImageDimensions(value);
-      return (
-        <div  >
-        <img
-          src={imageBuilder.image(value).url()}
-          alt={value.alt || " "}
-          loading="lazy"
-          className="md:px-0 h-full w-full"
-          style={{ aspectRatio: width / height,marginTop:"40px",marginBottom:"40px"}}
-        />
-        </div>
+    // image: ({ value }:any) => {
+    //   const { width, height } = getImageDimensions(value);
+    //   console.log(value)
+    //   return (
+    //     <div  >
+    //     <img
+    //       src={imageBuilder.image(value).url()}
+    //       alt={value.alt || " "}
+    //       loading="lazy"
+    //       className="md:px-0 h-full w-full"
+    //       style={{ aspectRatio: width / height,marginTop:"40px",marginBottom:"40px"}}
+    //     />
+    //     </div>
 
-      );
+    //   );
+      // {
+      //   _type: 'image',
+      //   _key: '0cf4a9dfd501',
+      //   asset: {
+      //     _ref: 'image-cc79888a85949db43ffc81df8c3f34960f518f4e-2048x1365-jpg',
+      //     _type: 'reference'
+      //   }
+      // }
+    // },
+    slideimages: ({ value }:any) => {
+     
+      return <div className="w-3/4 h-80 ml-auto mr-auto mt-8 mb-4">
+        <PhotoViewer images={value.images}></PhotoViewer>
+      </div> 
     },
-
     youtube:({value}:any) => {
       return <div style={{marginTop:'40px',marginBottom:"40px"}} className="flex flex-row justify-center items-center" >
         <YouTubePreview url={value.url} class={undefined}></YouTubePreview>
@@ -35,6 +50,9 @@ export const RichTextComponents:PortableTextComponent = {
     }
   },
   block: {
+      normal: ({ children }:any) => (
+      <p className="px-2 text-base my-5  leading-7 md:text-lg md:my-4">{children}</p>
+    ),
     h1: ({ children }:any) => (
       <h1 className="px-2 text-2xl md:text-4xl md:text-left font-bold my-4">{children}</h1>
     ),
@@ -58,7 +76,7 @@ export const RichTextComponents:PortableTextComponent = {
     ),
     em:({ children }:any) => <em className="px-2 text-base md:text-xl  my-4 md:text-left">{children}</em>,
     li: ({ children }:any) => <li className="px-2 text-base md:text-xl my-4 md:text-left">{children}</li>,
-    p: ({ children }:any) => <p className="px-2 text-base  md:text-xl my-4 md:text-left">{children}</p>,
+    //p: ({ children }:any) => <p className="px-2 leading-6  md:text-xl my-4 md:text-left" style={{lineHeight:"20px",letterSpacing:"10px"}}>{children}</p>,
   },
   marks: {
     link: ({ children, value }:{children:any,value:any}) => {
